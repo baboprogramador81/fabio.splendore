@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Splendore · Meta Ads · Teste de outubro 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Figtree:wght@400;500;600&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
+<style>
+:root{
+  --bg:#FAF8F4; --surface:#FFFFFF; --ink:#2A2114; --muted:#6E6250; --faint:#8E836F; --line:#E6DFD1; --grid:#EFE9DD;
+  --gold:#CFB574; --band-ink:#3B2A0C; --gold-ink:#8A6A22; --chip:#F2ECDF;
+  --s-female:#B08A33; --s-male:#2F6FA8; --s-plan:#9A8F7C; --s-wash:rgba(176,138,51,.10); --s-band:rgba(110,98,80,.12);
+  --on-female:#2A1E08; --on-male:#FFFFFF;
+  --ok:#3F7A4C; --warn:#A3621B; --bad:#B03A2E;
+  --display:"Montserrat","Helvetica Neue",Arial,sans-serif;
+  --body:"Figtree","Segoe UI",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#16130E; --surface:#201B14; --ink:#EFE8DA; --muted:#AFA390; --faint:#8C806C; --line:#3A3226; --grid:#2E2820;
+    --gold:#CFB574; --band-ink:#3B2A0C; --gold-ink:#D8BE7C; --chip:#2B241A;
+    --s-female:#A9832E; --s-male:#4F8BC4; --s-plan:#8C806C; --s-wash:rgba(169,131,46,.14); --s-band:rgba(175,163,144,.12);
+    --on-female:#1A1308; --on-male:#FFFFFF;
+    --ok:#7DBF8A; --warn:#E0A35A; --bad:#E57A6E;
+    color-scheme:dark;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+.num{font-variant-numeric:tabular-nums}
+
+/* Faixa da marca */
+.band{background:var(--gold);color:var(--band-ink)}
+.band .wrap{padding-top:34px;padding-bottom:30px;display:grid;gap:10px}
+.brand{font-family:var(--display);font-weight:400;letter-spacing:.32em;font-size:clamp(1.5rem,4vw,2.3rem)}
+.band h1{font-family:var(--display);font-weight:500;font-size:1.05rem;letter-spacing:.02em}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.facts span{font-family:var(--display);font-size:.7rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(59,42,12,.35);padding:5px 10px;border-radius:2px}
+.facts span.now{background:#3B2A0C;color:#F4E7C4;border-color:#3B2A0C}
+
+/* Filtros */
+.filters{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.filters .wrap{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;padding-top:12px;padding-bottom:12px}
+.fg{display:flex;align-items:center;gap:8px}
+.fg>label,.fg>.lab{font-family:var(--display);font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--surface)}
+.seg button{font:500 .85rem var(--body);color:var(--muted);background:none;border:0;padding:6px 12px;cursor:pointer}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--chip);color:var(--ink);font-weight:600}
+.seg button:focus-visible,select:focus-visible,.reset:focus-visible,th button:focus-visible{outline:2px solid var(--gold-ink);outline-offset:1px}
+select{font:500 .85rem var(--body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:6px 8px}
+.reset{font:500 .82rem var(--body);color:var(--gold-ink);background:none;border:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.scope{margin-left:auto;font-size:.82rem;color:var(--muted)}
+
+main.wrap{padding-top:22px;padding-bottom:56px;display:grid;gap:18px}
+.sec-title{font-family:var(--display);font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink);margin:14px 0 -4px}
+
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:12px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px 18px;display:grid;gap:4px;align-content:start}
+.kpi .k-label{font-family:var(--display);font-size:.66rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.kpi .k-value{font-family:var(--display);font-size:1.7rem;font-weight:500;line-height:1.15;color:var(--ink)}
+.kpi .k-sub{font-size:.82rem;color:var(--muted)}
+.badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--display);font-size:.64rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 7px;border-radius:2px;width:max-content;margin-top:4px}
+.badge svg{width:11px;height:11px;flex:none}
+.badge.ok{color:var(--ok);background:color-mix(in srgb,var(--ok) 13%,transparent)}
+.badge.warn{color:var(--warn);background:color-mix(in srgb,var(--warn) 14%,transparent)}
+.badge.bad{color:var(--bad);background:color-mix(in srgb,var(--bad) 13%,transparent)}
+
+/* Cards */
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 20px;min-width:0}
+.card h3{font-family:var(--display);font-size:.95rem;font-weight:600;margin-bottom:2px}
+.card .sub{font-size:.84rem;color:var(--muted);margin-bottom:12px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:.82rem;color:var(--muted);margin-bottom:8px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.legend i.line{height:2px;width:14px;border-radius:1px;vertical-align:3px}
+.chart{position:relative;height:270px}
+.chart.tall{height:300px}
+.note{font-size:.8rem;color:var(--faint);margin-top:10px}
+
+/* Leitura e metas */
+.read{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:18px}
+.read ul{list-style:none;display:grid;gap:12px}
+.read li{padding-left:16px;position:relative;max-width:68ch}
+.read li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.next{border-left:3px solid var(--gold);padding:12px 16px;background:var(--chip);border-radius:0 4px 4px 0;font-size:.92rem}
+.next b{font-family:var(--display);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-ink);display:block;margin-bottom:4px}
+
+/* Tabelas */
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.86rem}
+th,td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th:first-child,td:first-child,th.l,td.l{text-align:left}
+thead th{font-family:var(--display);font-size:.64rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);vertical-align:bottom}
+th button{all:unset;cursor:pointer;display:inline-flex;gap:4px;align-items:center}
+th button:hover{color:var(--ink)}
+th .arr{font-size:.6rem;opacity:.35}
+th[aria-sort] .arr{opacity:1;color:var(--gold-ink)}
+tbody tr:hover{background:color-mix(in srgb,var(--chip) 60%,transparent)}
+tfoot td{font-weight:600;border-top:2px solid var(--line);border-bottom:0}
+td .sw{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px}
+.goals td{white-space:normal;vertical-align:top}
+.goals td:nth-child(2),.goals td:nth-child(3){text-align:left}
+.table-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:10px;margin-bottom:10px}
+.muted{color:var(--muted)}
+.dash{color:var(--faint)}
+
+footer{color:var(--faint);font-size:.8rem;border-top:1px solid var(--line);padding-top:16px;display:grid;gap:4px}
+.nolib{display:none;background:var(--chip);border:1px solid var(--line);padding:12px 16px;border-radius:4px;font-size:.9rem}
+
+@media (max-width:860px){
+  .grid2,.read{grid-template-columns:1fr}
+  .scope{margin-left:0;width:100%}
+  .filters{position:static}
+}
+@media print{
+  body{background:#fff}
+  .filters{display:none}
+  .card,.kpi{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="wrap">
+    <div class="brand">SPLENDORE</div>
+    <h1>Relatório Meta Ads · Teste de prospecção de noivos · Outubro 2026</h1>
+    <div class="facts">
+      <span class="now">22 a 31/10/2026</span>
+      <span>TOPO | Prospecção Noivos | Franca</span>
+      <span>Mensagens no WhatsApp</span>
+      <span>Campanha concluída</span>
+    </div>
+  </div>
+</header>
+
+<nav class="filters" aria-label="Filtros">
+  <div class="wrap">
+    <div class="fg">
+      <span class="lab" id="lab-g">Gênero</span>
+      <div class="seg" role="group" aria-labelledby="lab-g" id="f-gender">
+        <button type="button" data-v="all" aria-pressed="true">Todos</button>
+        <button type="button" data-v="female" aria-pressed="false">Mulheres</button>
+        <button type="button" data-v="male" aria-pressed="false">Homens</button>
+      </div>
+    </div>
+    <div class="fg">
+      <label for="f-from">De</label><select id="f-from"></select>
+      <label for="f-to">até</label><select id="f-to"></select>
+    </div>
+    <button type="button" class="reset" id="f-reset">Limpar filtros</button>
+    <span class="scope" id="scope"></span>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div class="nolib" id="nolib">Os gráficos precisam de internet para carregar a biblioteca Chart.js. Os números e as tabelas continuam valendo.</div>
+
+  <section class="kpis" id="kpis" aria-label="Indicadores principais"></section>
+
+  <div class="sec-title">Leitura do teste</div>
+  <section class="read">
+    <div class="card">
+      <h3>O que os números dizem</h3>
+      <p class="sub">Leitura do período inteiro, todos os públicos.</p>
+      <ul id="insights"></ul>
+      <div class="next" id="next" style="margin-top:18px"></div>
+    </div>
+    <div class="card">
+      <h3>Metas do plano x resultado</h3>
+      <p class="sub">Metas definidas na estratégia de outubro para o teste de R$ 200.</p>
+      <div class="tablewrap"><table class="goals" id="goals"></table></div>
+    </div>
+  </section>
+
+  <div class="sec-title">Evolução diária</div>
+  <section class="grid2">
+    <div class="card">
+      <h3>Conversas iniciadas por dia</h3>
+      <p class="sub" id="sub-conv"></p>
+      <div class="legend" id="leg-conv"></div>
+      <div class="chart"><canvas id="c-conv" role="img" aria-label="Conversas iniciadas por dia, por gênero"></canvas></div>
+    </div>
+    <div class="card">
+      <h3>Conversas acumuladas x faixa esperada</h3>
+      <p class="sub" id="sub-cum"></p>
+      <div class="legend">
+        <span><i class="line" style="background:var(--s-female)"></i>Conversas acumuladas</span>
+        <span><i style="background:var(--s-band);outline:1px solid var(--line)"></i>Faixa esperada no teste (10 a 20)</span>
+      </div>
+      <div class="chart"><canvas id="c-cum" role="img" aria-label="Conversas acumuladas ao longo do teste"></canvas></div>
+    </div>
+    <div class="card">
+      <h3>Investimento por dia</h3>
+      <p class="sub" id="sub-spend"></p>
+      <div class="legend" id="leg-spend"></div>
+      <div class="chart"><canvas id="c-spend" role="img" aria-label="Valor investido por dia"></canvas></div>
+    </div>
+    <div class="card">
+      <h3>Do anúncio até a conversa</h3>
+      <p class="sub">Quantas pessoas passaram por cada etapa, com a porcentagem sobre as impressões.</p>
+      <div class="chart"><canvas id="c-funnel" role="img" aria-label="Etapas do anúncio até a conversa"></canvas></div>
+      <p class="note">Cliques (todos) inclui qualquer clique no anúncio. Vídeo 15s é o ThruPlay de 15 segundos.</p>
+    </div>
+  </section>
+
+  <div class="sec-title">Público</div>
+  <section class="card">
+    <h3>Mulheres x homens</h3>
+    <p class="sub" id="sub-gender"></p>
+    <div class="legend">
+      <span><i style="background:var(--s-female)"></i>Mulheres</span>
+      <span><i style="background:var(--s-male)"></i>Homens</span>
+    </div>
+    <div class="chart" style="height:250px"><canvas id="c-gender" role="img" aria-label="Participação de mulheres e homens em cada métrica"></canvas></div>
+    <div class="tablewrap" style="margin-top:12px"><table id="t-gender"></table></div>
+  </section>
+
+  <div class="sec-title">Dados detalhados</div>
+  <section class="card">
+    <div class="table-head">
+      <div>
+        <h3>Tabela do período</h3>
+        <p class="sub" style="margin:0">Clique no título de uma coluna para ordenar.</p>
+      </div>
+      <div class="fg">
+        <span class="lab" id="lab-v">Ver por</span>
+        <div class="seg" role="group" aria-labelledby="lab-v" id="f-view">
+          <button type="button" data-v="day" aria-pressed="true">Dia</button>
+          <button type="button" data-v="daygender" aria-pressed="false">Dia e gênero</button>
+        </div>
+      </div>
+    </div>
+    <div class="tablewrap"><table id="t-detail"></table></div>
+  </section>
+
+  <footer>
+    <span>Fonte: exportação do Gerenciador de Anúncios do Meta (Topo-Splendore-Outubro.xlsx), dados diários por gênero. Atribuição: clique de 7 dias ou visualização de 1 dia.</span>
+    <span>O alcance aparece só por dia: a mesma pessoa pode ser alcançada em dias diferentes, então somar os dias não dá o alcance do período. Por isso a frequência também é lida dia a dia.</span>
+    <span>Visitas agendadas e contratos não passam pelo Meta. As 4 visitas agendadas foram informadas pela proprietária em 04/11/2026; os próximos números vêm das etiquetas do WhatsApp Business.</span>
+  </footer>
+</main>
+
+<script>
+const ROWS = [{"day":"2026-10-22","g":"female","pv":2,"fol":0,"res":0,"spend":0.73,"imp":55,"reach":48,"clk":1,"v3":9,"tp":1},{"day":"2026-10-23","g":"female","pv":25,"fol":5,"res":6,"spend":20.97,"imp":1128,"reach":490,"clk":41,"v3":123,"tp":39},{"day":"2026-10-23","g":"male","pv":0,"fol":0,"res":0,"spend":0.25,"imp":14,"reach":12,"clk":0,"v3":2,"tp":1},{"day":"2026-10-23","g":"unknown","pv":0,"fol":0,"res":0,"spend":0,"imp":1,"reach":1,"clk":0,"v3":1,"tp":0},{"day":"2026-10-24","g":"female","pv":14,"fol":1,"res":2,"spend":11.34,"imp":767,"reach":401,"clk":27,"v3":130,"tp":39},{"day":"2026-10-24","g":"male","pv":0,"fol":0,"res":0,"spend":0.98,"imp":61,"reach":34,"clk":0,"v3":4,"tp":1},{"day":"2026-10-24","g":"unknown","pv":0,"fol":0,"res":0,"spend":0.01,"imp":2,"reach":2,"clk":0,"v3":0,"tp":0},{"day":"2026-10-25","g":"female","pv":7,"fol":2,"res":1,"spend":10.15,"imp":792,"reach":415,"clk":23,"v3":139,"tp":37},{"day":"2026-10-25","g":"male","pv":1,"fol":0,"res":0,"spend":1.14,"imp":74,"reach":40,"clk":3,"v3":11,"tp":4},{"day":"2026-10-25","g":"unknown","pv":0,"fol":0,"res":0,"spend":0,"imp":4,"reach":1,"clk":0,"v3":0,"tp":0},{"day":"2026-10-26","g":"female","pv":13,"fol":1,"res":1,"spend":14.17,"imp":808,"reach":379,"clk":20,"v3":111,"tp":27},{"day":"2026-10-26","g":"male","pv":1,"fol":0,"res":0,"spend":1.6,"imp":85,"reach":48,"clk":1,"v3":11,"tp":2},{"day":"2026-10-26","g":"unknown","pv":0,"fol":0,"res":0,"spend":0.01,"imp":2,"reach":1,"clk":0,"v3":0,"tp":0},{"day":"2026-10-27","g":"female","pv":23,"fol":3,"res":4,"spend":25.69,"imp":1268,"reach":619,"clk":34,"v3":177,"tp":43},{"day":"2026-10-27","g":"male","pv":0,"fol":0,"res":0,"spend":2.95,"imp":146,"reach":79,"clk":0,"v3":15,"tp":1},{"day":"2026-10-27","g":"unknown","pv":0,"fol":0,"res":0,"spend":0.01,"imp":1,"reach":1,"clk":0,"v3":0,"tp":0},{"day":"2026-10-28","g":"female","pv":10,"fol":1,"res":0,"spend":18.07,"imp":831,"reach":475,"clk":22,"v3":151,"tp":42},{"day":"2026-10-28","g":"male","pv":1,"fol":0,"res":0,"spend":2.7,"imp":137,"reach":73,"clk":3,"v3":17,"tp":3},{"day":"2026-10-28","g":"unknown","pv":0,"fol":0,"res":0,"spend":0.01,"imp":1,"reach":1,"clk":0,"v3":0,"tp":0},{"day":"2026-10-29","g":"female","pv":5,"fol":0,"res":5,"spend":16.37,"imp":800,"reach":485,"clk":24,"v3":147,"tp":38},{"day":"2026-10-29","g":"male","pv":1,"fol":1,"res":1,"spend":2.01,"imp":96,"reach":55,"clk":4,"v3":8,"tp":1},{"day":"2026-10-30","g":"female","pv":9,"fol":1,"res":3,"spend":7.6,"imp":369,"reach":216,"clk":11,"v3":86,"tp":18},{"day":"2026-10-30","g":"male","pv":2,"fol":0,"res":1,"spend":1.14,"imp":51,"reach":29,"clk":1,"v3":13,"tp":3},{"day":"2026-10-31","g":"female","pv":8,"fol":1,"res":3,"spend":12.61,"imp":886,"reach":508,"clk":24,"v3":164,"tp":45},{"day":"2026-10-31","g":"male","pv":0,"fol":0,"res":0,"spend":2.23,"imp":131,"reach":78,"clk":2,"v3":28,"tp":7},{"day":"2026-10-31","g":"unknown","pv":0,"fol":0,"res":0,"spend":0.04,"imp":4,"reach":1,"clk":0,"v3":0,"tp":0}];
+const VISITS = 4; /* informado pela proprietária em 04/11/2026 */
+const PKG = {Elegance:20750, Essenza:22830, Supreme:24830};
+const PLAN = {budget:170, daily:17, convMin:10, convMax:20, cplMax:15, cplBad:25, ctrMin:1, freqMax:3};
+const GL = {female:'Mulheres', male:'Homens', unknown:'Não informado'};
+const DAYS = [...new Set(ROWS.map(r => r.day))].sort();
+const KEYS = ['spend','imp','reach','clk','res','pv','fol','v3','tp'];
+
+const fBRL = new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'});
+const fInt = new Intl.NumberFormat('pt-BR',{maximumFractionDigits:0});
+const f1 = new Intl.NumberFormat('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1});
+const brl = v => fBRL.format(v).replace(/ /g,' ');
+const int = v => fInt.format(v);
+const pct = v => f1.format(v) + '%';
+const dm = d => d.slice(8,10) + '/' + d.slice(5,7);
+const WD = ['dom','seg','ter','qua','qui','sex','sáb'];
+const wd = d => WD[new Date(d + 'T12:00:00').getDay()];
+
+function sum(rows){ const o = {}; KEYS.forEach(k => o[k] = 0); rows.forEach(r => KEYS.forEach(k => o[k] += r[k])); return o; }
+function derive(o){
+  o.cpl = o.res ? o.spend / o.res : null;
+  o.ctr = o.imp ? o.clk / o.imp * 100 : null;
+  o.cpm = o.imp ? o.spend / o.imp * 1000 : null;
+  o.cpc = o.clk ? o.spend / o.clk : null;
+  o.freq = o.reach ? o.imp / o.reach : null;
+  return o;
+}
+const byDay = rows => DAYS.map(d => Object.assign({day:d}, derive(sum(rows.filter(r => r.day === d)))));
+
+const state = {g:'all', from:DAYS[0], to:DAYS[DAYS.length-1], view:'day', sortKey:'day', sortDir:'asc'};
+const isFull = () => state.g === 'all' && state.from === DAYS[0] && state.to === DAYS[DAYS.length-1];
+const inRange = r => r.day >= state.from && r.day <= state.to;
+const rowsF = () => ROWS.filter(r => inRange(r) && (state.g === 'all' || r.g === state.g));
+const rowsD = () => ROWS.filter(inRange);
+const daysF = () => DAYS.filter(d => d >= state.from && d <= state.to);
+
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const ICON = {
+  ok:'<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  warn:'<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 2.2v4.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="6" cy="9.3" r="1" fill="currentColor"/></svg>',
+  bad:'<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>'
+};
+const badge = (kind, text) => `<span class="badge ${kind}">${ICON[kind]}${text}</span>`;
+
+/* ---------- KPIs ---------- */
+function renderKPIs(){
+  const t = derive(sum(rowsF()));
+  const full = isFull();
+  const cplKind = t.cpl == null ? null : t.cpl <= PLAN.cplMax ? 'ok' : t.cpl <= PLAN.cplBad ? 'warn' : 'bad';
+  const cards = [
+    {l:'Investimento', v:brl(t.spend), s: full ? `de ${brl(PLAN.budget)} planejados (${pct(t.spend/PLAN.budget*100)})` : 'no recorte filtrado',
+      b: full ? badge('ok','No orçamento') : ''},
+    {l:'Conversas iniciadas', v:int(t.res), s: full ? `faixa esperada: ${PLAN.convMin} a ${PLAN.convMax}` : 'no recorte filtrado',
+      b: full ? (t.res > PLAN.convMax ? badge('ok','Acima do esperado') : t.res >= PLAN.convMin ? badge('ok','Na faixa') : badge('warn','Abaixo da faixa')) : ''},
+    {l:'Custo por conversa', v: t.cpl == null ? '<span class="dash">sem conversas</span>' : brl(t.cpl), s:`meta: até ${brl(PLAN.cplMax)}`,
+      b: cplKind ? badge(cplKind, cplKind === 'ok' ? 'Dentro da meta' : cplKind === 'warn' ? 'Acima da meta' : 'Trocar criativo') : ''},
+    {l:'CTR (todos)', v: t.ctr == null ? 'n/d' : pct(t.ctr), s:`meta: acima de ${PLAN.ctrMin}% · CPC ${t.cpc == null ? 'n/d' : brl(t.cpc)}`,
+      b: t.ctr == null ? '' : t.ctr > PLAN.ctrMin ? badge('ok','Dentro da meta') : badge('warn','Abaixo da meta')},
+    {l:'Visitas agendadas', v:int(VISITS), s: full ? `${brl(t.spend / VISITS)} por visita · ${pct(VISITS / t.res * 100)} das conversas` : 'total do teste, sem divisão por dia ou gênero',
+      b: full ? badge('ok','Topo da meta') : ''},
+    {l:'Visitas ao perfil', v:int(t.pv), s:`${int(t.fol)} novos seguidores no Instagram`, b:''}
+  ];
+  document.getElementById('kpis').innerHTML = cards.map(c =>
+    `<div class="kpi"><div class="k-label">${c.l}</div><div class="k-value num">${c.v}</div><div class="k-sub num">${c.s}</div>${c.b}</div>`).join('');
+  const days = daysF().length;
+  document.getElementById('scope').textContent =
+    `${state.g === 'all' ? 'Todos os públicos' : GL[state.g]} · ${dm(state.from)} a ${dm(state.to)} (${days} ${days === 1 ? 'dia' : 'dias'})`;
+}
+
+/* ---------- Leitura e metas (período inteiro) ---------- */
+function renderReading(){
+  const t = derive(sum(ROWS));
+  const f = derive(sum(ROWS.filter(r => r.g === 'female')));
+  const m = derive(sum(ROWS.filter(r => r.g === 'male')));
+  const days = byDay(ROWS);
+  const freqs = days.filter(d => d.reach > 0).map(d => d.freq);
+  const fMin = Math.min(...freqs), fMax = Math.max(...freqs);
+  const best = days.slice().sort((a,b) => b.res - a.res || a.spend - b.spend)[0];
+  const zero = days.filter(d => d.res === 0 && d.spend > 5).sort((a,b) => b.spend - a.spend)[0];
+  const cheap = days.filter(d => d.res > 0).sort((a,b) => a.cpl - b.cpl)[0];
+
+  const ins = [
+    `O teste passou com folga na métrica principal: cada conversa custou <b class="num">${brl(t.cpl)}</b>, menos da metade do teto de ${brl(PLAN.cplMax)}, e vieram <b class="num">${int(t.res)} conversas</b>, acima das ${PLAN.convMin} a ${PLAN.convMax} previstas.`,
+    `Mulheres trouxeram <b class="num">${int(f.res)} das ${int(t.res)}</b> conversas e receberam ${pct(f.spend/t.spend*100)} da verba. O público não tinha filtro de gênero: foi o próprio Meta que concentrou a entrega nelas.`,
+    `<b class="num">${int(VISITS)} das ${int(t.res)}</b> conversas viraram visita agendada ao salão (${pct(VISITS / t.res * 100)}), com custo de <b class="num">${brl(t.spend / VISITS)} por visita</b>. É o topo da faixa de 2 a 4 prevista no plano.`,
+    `Basta uma visita fechar para o teste se pagar muitas vezes: um contrato do pacote Elegance (${brl(PKG.Elegance)}, 80 convidados) equivale a <b class="num">${int(PKG.Elegance / t.spend)} vezes</b> o investimento em anúncios.`,
+    `O CTR de <b class="num">${pct(t.ctr)}</b> ficou quase 3 vezes acima da meta de ${PLAN.ctrMin}%, e a frequência diária ficou entre ${f1.format(fMin)} e ${f1.format(fMax)}, abaixo do limite de ${PLAN.freqMax}. O público ainda não cansou do anúncio.`,
+    zero ? `Os dias oscilaram, o que é normal em 10 dias de teste: ${dm(zero.day)} gastou ${brl(zero.spend)} sem nenhuma conversa, enquanto ${dm(cheap.day)} trouxe ${int(cheap.res)} conversas com ${brl(cheap.spend)}. A leitura vale pelo período, não por dia.` : '',
+    `O vídeo prende a atenção de <b class="num">${pct(t.v3/t.imp*100)}</b> das impressões nos 3 primeiros segundos, e ${pct(t.tp/t.v3*100)} dessas pessoas assistem até os 15 segundos.`
+  ].filter(Boolean);
+  document.getElementById('insights').innerHTML = ins.map(s => `<li>${s}</li>`).join('');
+
+  const goals = [
+    ['Custo por conversa', `até ${brl(PLAN.cplMax)} (acima de ${brl(PLAN.cplBad)}, trocar o criativo)`, brl(t.cpl), badge('ok','Dentro')],
+    ['Conversas no teste', `${PLAN.convMin} a ${PLAN.convMax}`, int(t.res), badge('ok','Acima')],
+    ['CTR', `acima de ${PLAN.ctrMin}%`, pct(t.ctr), badge('ok','Dentro')],
+    ['Frequência', `abaixo de ${PLAN.freqMax}`, `${f1.format(fMin)} a ${f1.format(fMax)} por dia`, badge('ok','Dentro')],
+    ['Verba', `${brl(PLAN.budget)} em 10 dias`, brl(t.spend), badge('ok','Dentro')],
+    ['Visitas agendadas', '2 a 4 (a métrica que decide)', `${int(VISITS)} (${brl(t.spend / VISITS)} por visita)`, badge('ok','Topo')]
+  ];
+  document.getElementById('goals').innerHTML =
+    '<thead><tr><th>Indicador</th><th>Meta</th><th>Resultado</th><th>Situação</th></tr></thead><tbody>' +
+    goals.map(g => `<tr><td>${g[0]}</td><td class="muted">${g[1]}</td><td class="num">${g[2]}</td><td>${g[3]}</td></tr>`).join('') + '</tbody>';
+
+  document.getElementById('next').innerHTML =
+    `<b>Próximo passo</b>O teste cumpriu os dois critérios do plano: custo por conversa abaixo de ${brl(PLAN.cplMax)} e visitas agendadas (${int(VISITS)}). O caminho agora é recarregar e seguir o plano de R$ 1.000/mês. Para começar pelo vídeo vencedor, vale exportar o relatório no nível de anúncio, que separa os dois vídeos. E seguir marcando as etiquetas Visita agendada e Fechado no WhatsApp, que são a única forma de saber quantos contratos vieram dos anúncios.`;
+}
+
+/* ---------- Plugins de gráfico ---------- */
+const labelPlugin = {
+  id:'labelPlugin',
+  afterDatasetsDraw(chart, args, o){
+    if(!o || !o.format) return;
+    const {ctx} = chart; ctx.save();
+    ctx.font = '600 12px Figtree, Segoe UI, sans-serif';
+    chart.data.datasets.forEach((ds, di) => {
+      const meta = chart.getDatasetMeta(di);
+      if(meta.hidden || (o.only && !o.only.includes(di))) return;
+      meta.data.forEach((el, i) => {
+        const txt = o.format(ds.data[i], i, di);
+        if(!txt) return;
+        if(o.mode === 'inside'){
+          const w = Math.abs(el.x - el.base);
+          if(ctx.measureText(txt).width + 14 > w) return;
+          ctx.fillStyle = o.inkFor(di); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+          ctx.fillText(txt, (el.x + el.base) / 2, el.y);
+        } else if(o.mode === 'tipH'){
+          ctx.fillStyle = o.color; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+          ctx.fillText(txt, el.x + 8, el.y);
+        } else if(o.mode === 'end'){
+          ctx.fillStyle = o.color; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+          ctx.fillText(txt, el.x + 9, el.y);
+        }
+      });
+    });
+    ctx.restore();
+  }
+};
+const crosshair = {
+  id:'crosshair',
+  afterDatasetsDraw(chart, args, o){
+    if(!o || !o.color) return;
+    const a = chart.tooltip && chart.tooltip.getActiveElements();
+    if(!a || !a.length) return;
+    const x = a[0].element.x, {top, bottom} = chart.chartArea, ctx = chart.ctx;
+    ctx.save(); ctx.strokeStyle = o.color; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(x, top); ctx.lineTo(x, bottom); ctx.stroke(); ctx.restore();
+  }
+};
+
+const charts = {};
+function baseOpts(c){
+  return {
+    responsive:true, maintainAspectRatio:false, animation:false,
+    layout:{padding:{top:6, right:8}},
+    interaction:{mode:'index', intersect:false},
+    plugins:{
+      legend:{display:false},
+      tooltip:{
+        backgroundColor:c.surface, titleColor:c.ink, bodyColor:c.ink, borderColor:c.line, borderWidth:1,
+        padding:10, boxPadding:4, usePointStyle:true,
+        titleFont:{family:'Montserrat, Segoe UI, sans-serif', weight:'600', size:12}, bodyFont:{family:'Figtree, Segoe UI, sans-serif', size:12}
+      }
+    },
+    scales:{
+      x:{grid:{display:false}, border:{color:c.line}, ticks:{color:c.muted, font:{family:'Figtree, Segoe UI, sans-serif', size:11}}},
+      y:{beginAtZero:true, grid:{color:c.grid}, border:{display:false}, ticks:{color:c.muted, font:{family:'Figtree, Segoe UI, sans-serif', size:11}}}
+    }
+  };
+}
+const colors = () => ({
+  ink:css('--ink'), muted:css('--muted'), line:css('--line'), grid:css('--grid'), surface:css('--surface'),
+  female:css('--s-female'), male:css('--s-male'), plan:css('--s-plan'), wash:css('--s-wash'), band:css('--s-band'),
+  onFemale:css('--on-female'), onMale:css('--on-male')
+});
+const legendHTML = items => items.map(i => `<span><i class="${i.line ? 'line' : ''}" style="background:${i.color}"></i>${i.label}</span>`).join('');
+
+function renderCharts(){
+  if(typeof Chart === 'undefined'){ document.getElementById('nolib').style.display = 'block'; return; }
+  Object.values(charts).forEach(ch => ch.destroy());
+  const c = colors();
+  const days = daysF();
+  const labels = days.map(d => [dm(d), wd(d)]);
+  const showG = state.g === 'all' ? ['female','male'] : [state.g];
+  const perG = {};
+  ['female','male'].forEach(g => perG[g] = days.map(d => sum(ROWS.filter(r => r.day === d && r.g === g))));
+  const all = byDay(rowsF()).filter(d => d.day >= state.from && d.day <= state.to);
+  const tot = derive(sum(rowsF()));
+
+  /* 1. Conversas por dia, empilhado por gênero */
+  const convSets = showG.map((g, i) => ({
+    label:GL[g], data:perG[g].map(o => o.res), backgroundColor:c[g], stack:'s',
+    borderColor:c.surface, borderWidth:(i === 0 && showG.length > 1) ? {top:2, left:0, right:0, bottom:0} : 0,
+    borderRadius:4, borderSkipped:'start', maxBarThickness:24
+  }));
+  document.getElementById('leg-conv').innerHTML = showG.length > 1 ? legendHTML(showG.map(g => ({label:GL[g], color:c[g]}))) : '';
+  document.getElementById('sub-conv').textContent = `${int(tot.res)} conversas no período${state.g === 'all' ? ', separadas por gênero' : ' · ' + GL[state.g]}.`;
+  const o1 = baseOpts(c);
+  o1.scales.x.stacked = true; o1.scales.y.stacked = true;
+  o1.scales.y.ticks.stepSize = 1; o1.scales.y.ticks.precision = 0;
+  o1.plugins.tooltip.callbacks = {
+    title: it => `${dm(days[it[0].dataIndex])} (${wd(days[it[0].dataIndex])})`,
+    label: it => ` ${it.dataset.label}: ${int(it.parsed.y)} ${it.parsed.y === 1 ? 'conversa' : 'conversas'}`,
+    footer: it => { const d = all[it[0].dataIndex]; return d ? `Total do dia: ${int(d.res)} · ${brl(d.spend)} investidos` : ''; }
+  };
+  o1.plugins.tooltip.footerColor = c.muted; o1.plugins.tooltip.footerFont = {family:'Figtree, Segoe UI, sans-serif', weight:'500', size:11};
+  charts.conv = new Chart(document.getElementById('c-conv'), {type:'bar', data:{labels, datasets:convSets}, options:o1});
+
+  /* 2. Acumulado x faixa esperada */
+  let acc = 0; const cum = all.map(d => (acc += d.res));
+  const hit = cum.findIndex(v => v >= PLAN.convMax);
+  document.getElementById('sub-cum').textContent = cum.length
+    ? `Chegou a ${int(cum[cum.length-1])} conversas em ${dm(days[days.length-1])}.` + (isFull() && hit >= 0 ? ` Bateu o topo da faixa esperada em ${dm(days[hit])}` + (days.length - hit - 1 > 0 ? `, com ${days.length - hit - 1} ${days.length - hit - 1 === 1 ? 'dia' : 'dias'} ainda pela frente.` : '.') : '')
+    : '';
+  const o2 = baseOpts(c);
+  o2.layout.padding.right = 34;
+  o2.scales.y.suggestedMax = Math.max(PLAN.convMax + 4, (cum[cum.length-1] || 0) + 3);
+  o2.scales.y.ticks.stepSize = 5;
+  o2.plugins.crosshair = {color:c.line};
+  o2.plugins.labelPlugin = {mode:'end', color:c.ink, only:[2], format:(v, i) => i === cum.length - 1 ? int(v) : ''};
+  o2.plugins.tooltip.filter = it => it.datasetIndex === 2;
+  o2.plugins.tooltip.callbacks = {
+    title: it => `${dm(days[it[0].dataIndex])} (${wd(days[it[0].dataIndex])})`,
+    label: it => ` ${int(it.parsed.y)} conversas acumuladas (+${int(all[it.dataIndex].res)} no dia)`
+  };
+  charts.cum = new Chart(document.getElementById('c-cum'), {
+    type:'line',
+    data:{labels, datasets:[
+      {label:'min', data:days.map(() => PLAN.convMin), borderWidth:0, pointRadius:0, pointHitRadius:0, fill:false},
+      {label:'max', data:days.map(() => PLAN.convMax), borderWidth:0, pointRadius:0, pointHitRadius:0, fill:'-1', backgroundColor:c.band},
+      {label:'Conversas acumuladas', data:cum, borderColor:c.female, backgroundColor:c.female, borderWidth:2,
+       borderJoinStyle:'round', borderCapStyle:'round', tension:0,
+       pointRadius:days.map((_, i) => i === days.length - 1 ? 4 : 0), pointHoverRadius:5,
+       pointBorderColor:c.surface, pointBorderWidth:2, pointHitRadius:14}
+    ]},
+    options:o2, plugins:[crosshair, labelPlugin]
+  });
+
+  /* 3. Investimento por dia */
+  const spendSets = [{type:'bar', label:'Investido', data:all.map(d => +d.spend.toFixed(2)), backgroundColor:c.female,
+    borderRadius:4, borderSkipped:'start', maxBarThickness:24, order:2}];
+  const planOn = state.g === 'all';
+  if(planOn) spendSets.push({type:'line', label:`Planejado: ${brl(PLAN.daily)}/dia`, data:days.map(() => PLAN.daily),
+    borderColor:c.plan, borderWidth:2, pointRadius:0, pointHitRadius:0, order:1});
+  document.getElementById('leg-spend').innerHTML = planOn
+    ? legendHTML([{label:'Investido no dia', color:c.female}, {label:`Planejado: ${brl(PLAN.daily)}/dia`, color:c.plan, line:true}]) : '';
+  const avg = days.length ? tot.spend / days.length : 0;
+  document.getElementById('sub-spend').textContent = `${brl(tot.spend)} no período, média de ${brl(avg)} por dia${state.g === 'all' ? '' : ' · ' + GL[state.g]}.`;
+  const o3 = baseOpts(c);
+  o3.scales.y.ticks.callback = v => 'R$ ' + int(v);
+  o3.plugins.tooltip.filter = it => it.datasetIndex === 0;
+  o3.plugins.tooltip.callbacks = {
+    title: it => `${dm(days[it[0].dataIndex])} (${wd(days[it[0].dataIndex])})`,
+    label: it => { const d = all[it.dataIndex]; return [` Investido: ${brl(d.spend)}`, ` Conversas: ${int(d.res)}`, ` Custo por conversa: ${d.cpl == null ? 'sem conversas' : brl(d.cpl)}`]; }
+  };
+  charts.spend = new Chart(document.getElementById('c-spend'), {data:{labels, datasets:spendSets}, options:o3});
+
+  /* 4. Funil */
+  const steps = [['Impressões', tot.imp], ['Vídeo 3s', tot.v3], ['Vídeo 15s', tot.tp], ['Cliques (todos)', tot.clk], ['Visitas ao perfil', tot.pv], ['Conversas', tot.res]];
+  if(isFull()) steps.push(['Visitas agendadas', VISITS]);
+  const o4 = baseOpts(c);
+  o4.indexAxis = 'y';
+  o4.interaction = {mode:'nearest', axis:'y', intersect:false};
+  o4.layout.padding.right = 120;
+  o4.scales.x = {beginAtZero:true, grid:{color:c.grid}, border:{display:false}, ticks:{color:c.muted, font:{family:'Figtree, Segoe UI, sans-serif', size:11}, callback:v => int(v)}};
+  o4.scales.y = {grid:{display:false}, border:{color:c.line}, ticks:{color:c.ink, font:{family:'Figtree, Segoe UI, sans-serif', size:12, weight:'500'}}};
+  o4.plugins.labelPlugin = {mode:'tipH', color:c.ink, format:(v) => tot.imp ? `${int(v)} · ${v === tot.imp ? '100%' : v / tot.imp * 100 < 0.1 ? 'menos de 0,1%' : pct(v / tot.imp * 100)}` : int(v)};
+  o4.plugins.tooltip.callbacks = {
+    label: it => ` ${int(it.parsed.x)} (${tot.imp ? pct(it.parsed.x / tot.imp * 100) : '0%'} das impressões)`
+  };
+  charts.funnel = new Chart(document.getElementById('c-funnel'), {
+    type:'bar', data:{labels:steps.map(s => s[0]), datasets:[{label:'Pessoas', data:steps.map(s => s[1]), backgroundColor:c.female, borderRadius:4, borderSkipped:'start', maxBarThickness:22}]},
+    options:o4, plugins:[labelPlugin]
+  });
+
+  /* 5. Gênero: participação 100% */
+  const gf = derive(sum(rowsD().filter(r => r.g === 'female'))), gm = derive(sum(rowsD().filter(r => r.g === 'male')));
+  const mets = [['Investimento','spend',brl], ['Impressões','imp',int], ['Cliques','clk',int], ['Visitas ao perfil','pv',int], ['Conversas','res',int]];
+  const share = (a, b) => (a + b) ? a / (a + b) * 100 : 0;
+  const o5 = baseOpts(c);
+  o5.indexAxis = 'y';
+  o5.interaction = {mode:'index', axis:'y', intersect:false};
+  o5.scales.x = {stacked:true, min:0, max:100, grid:{color:c.grid}, border:{display:false}, ticks:{color:c.muted, stepSize:25, callback:v => v + '%', font:{family:'Figtree, Segoe UI, sans-serif', size:11}}};
+  o5.scales.y = {stacked:true, grid:{display:false}, border:{display:false}, ticks:{color:c.ink, font:{family:'Figtree, Segoe UI, sans-serif', size:12, weight:'500'}}};
+  o5.plugins.labelPlugin = {mode:'inside', inkFor:di => di === 0 ? c.onFemale : c.onMale, format:v => v ? Math.round(v) + '%' : ''};
+  o5.plugins.tooltip.callbacks = {
+    label: it => { const m = mets[it.dataIndex], src = it.datasetIndex === 0 ? gf : gm; return ` ${it.dataset.label}: ${pct(it.parsed.x)} (${m[2](src[m[1]])})`; }
+  };
+  charts.gender = new Chart(document.getElementById('c-gender'), {
+    type:'bar',
+    data:{labels:mets.map(m => m[0]), datasets:[
+      {label:'Mulheres', data:mets.map(m => share(gf[m[1]], gm[m[1]])), backgroundColor:c.female, borderColor:c.surface, borderWidth:{right:2, top:0, bottom:0, left:0}, borderSkipped:false, borderRadius:{topLeft:4, bottomLeft:4}, maxBarThickness:26},
+      {label:'Homens', data:mets.map(m => share(gm[m[1]], gf[m[1]])), backgroundColor:c.male, borderSkipped:false, borderRadius:{topRight:4, bottomRight:4}, maxBarThickness:26}
+    ]},
+    options:o5, plugins:[labelPlugin]
+  });
+  document.getElementById('sub-gender').textContent = `Participação de cada gênero em ${dm(state.from)} a ${dm(state.to)}. Este gráfico ignora o filtro de gênero para manter a comparação.`;
+  const gRow = (g, o) => `<tr><td class="l"><span class="sw" style="background:${c[g]}"></span>${GL[g]}</td><td class="num">${brl(o.spend)}</td><td class="num">${int(o.imp)}</td><td class="num">${int(o.clk)}</td><td class="num">${o.ctr == null ? 'n/d' : pct(o.ctr)}</td><td class="num">${int(o.pv)}</td><td class="num">${int(o.res)}</td><td class="num">${o.cpl == null ? '<span class="dash">sem conversas</span>' : brl(o.cpl)}</td></tr>`;
+  document.getElementById('t-gender').innerHTML =
+    '<thead><tr><th class="l">Gênero</th><th>Investido</th><th>Impressões</th><th>Cliques</th><th>CTR</th><th>Visitas ao perfil</th><th>Conversas</th><th>Custo por conversa</th></tr></thead><tbody>' +
+    gRow('female', gf) + gRow('male', gm) + '</tbody>';
+}
+
+/* ---------- Tabela detalhada ---------- */
+const COLS = [
+  {k:'day', l:'Dia', f:r => `${dm(r.day)} <span class="muted">${wd(r.day)}</span>`, left:true},
+  {k:'g', l:'Gênero', f:r => GL[r.g], left:true, only:'daygender'},
+  {k:'spend', l:'Investido', f:r => brl(r.spend)},
+  {k:'imp', l:'Impressões', f:r => int(r.imp)},
+  {k:'reach', l:'Alcance', f:r => int(r.reach)},
+  {k:'freq', l:'Frequência', f:r => r.freq == null ? 'n/d' : f1.format(r.freq)},
+  {k:'clk', l:'Cliques', f:r => int(r.clk)},
+  {k:'ctr', l:'CTR', f:r => r.ctr == null ? 'n/d' : pct(r.ctr)},
+  {k:'cpm', l:'CPM', f:r => r.cpm == null ? 'n/d' : brl(r.cpm)},
+  {k:'res', l:'Conversas', f:r => int(r.res)},
+  {k:'cpl', l:'Custo/conversa', f:r => r.cpl == null ? '<span class="dash">n/d</span>' : brl(r.cpl)},
+  {k:'pv', l:'Visitas perfil', f:r => int(r.pv)},
+  {k:'fol', l:'Seguidores', f:r => int(r.fol)},
+  {k:'v3', l:'Vídeo 3s', f:r => int(r.v3)},
+  {k:'tp', l:'Vídeo 15s', f:r => int(r.tp)}
+];
+function renderTable(){
+  const cols = COLS.filter(c => !c.only || c.only === state.view);
+  let rows = state.view === 'day'
+    ? byDay(rowsF()).filter(d => d.day >= state.from && d.day <= state.to)
+    : rowsF().map(r => derive(Object.assign({}, r)));
+  if(!cols.some(c => c.k === state.sortKey)) state.sortKey = 'day';
+  const k = state.sortKey, dir = state.sortDir === 'asc' ? 1 : -1;
+  rows.sort((a, b) => {
+    const av = a[k], bv = b[k];
+    if(av == null && bv == null) return 0; if(av == null) return 1; if(bv == null) return -1;
+    const c = av < bv ? -1 : av > bv ? 1 : 0;
+    return c !== 0 ? c * dir : (a.day < b.day ? -1 : a.day > b.day ? 1 : 0);
+  });
+  const t = derive(sum(rowsF()));
+  const head = cols.map(c => {
+    const on = c.k === state.sortKey;
+    return `<th class="${c.left ? 'l' : ''}" ${on ? `aria-sort="${state.sortDir === 'asc' ? 'ascending' : 'descending'}"` : ''}><button type="button" data-k="${c.k}">${c.l}<span class="arr">${on ? (state.sortDir === 'asc' ? '▲' : '▼') : '▲▼'}</span></button></th>`;
+  }).join('');
+  const body = rows.map(r => '<tr>' + cols.map(c => `<td class="${c.left ? 'l' : 'num'}">${c.f(r)}</td>`).join('') + '</tr>').join('');
+  const foot = '<tr>' + cols.map((c, i) => {
+    if(i === 0) return '<td class="l">Total</td>';
+    if(c.k === 'g') return '<td></td>';
+    if(c.k === 'reach' || c.k === 'freq') return '<td class="num dash" title="Não somável entre dias">n/s</td>';
+    return `<td class="num">${c.f(t)}</td>`;
+  }).join('') + '</tr>';
+  const tbl = document.getElementById('t-detail');
+  tbl.innerHTML = `<thead><tr>${head}</tr></thead><tbody>${body}</tbody><tfoot>${foot}</tfoot>`;
+  tbl.querySelectorAll('th button').forEach(b => b.addEventListener('click', () => {
+    const key = b.dataset.k;
+    if(state.sortKey === key) state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
+    else { state.sortKey = key; state.sortDir = (key === 'day' || key === 'g') ? 'asc' : 'desc'; }
+    renderTable();
+  }));
+}
+
+/* ---------- Filtros ---------- */
+function setupFilters(){
+  const from = document.getElementById('f-from'), to = document.getElementById('f-to');
+  const opts = DAYS.map(d => `<option value="${d}">${dm(d)} (${wd(d)})</option>`).join('');
+  from.innerHTML = opts; to.innerHTML = opts;
+  const sync = () => { from.value = state.from; to.value = state.to; };
+  sync();
+  from.addEventListener('change', () => { state.from = from.value; if(state.to < state.from) state.to = state.from; sync(); update(); });
+  to.addEventListener('change', () => { state.to = to.value; if(state.from > state.to) state.from = state.to; sync(); update(); });
+  const seg = (id, key, cb) => document.getElementById(id).querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+    state[key] = b.dataset.v;
+    document.getElementById(id).querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    cb();
+  }));
+  seg('f-gender', 'g', update);
+  seg('f-view', 'view', renderTable);
+  document.getElementById('f-reset').addEventListener('click', () => {
+    state.g = 'all'; state.from = DAYS[0]; state.to = DAYS[DAYS.length-1]; sync();
+    document.querySelectorAll('#f-gender button').forEach(x => x.setAttribute('aria-pressed', x.dataset.v === 'all'));
+    update();
+  });
+}
+function update(){ renderKPIs(); renderCharts(); renderTable(); }
+
+setupFilters();
+renderReading();
+if(typeof Chart !== 'undefined'){ Chart.defaults.font.family = 'Figtree, "Segoe UI", system-ui, sans-serif'; Chart.defaults.color = css('--muted'); }
+renderKPIs(); renderTable();
+(document.fonts && document.fonts.ready ? Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 1500))]) : Promise.resolve()).then(renderCharts);
+if(window.matchMedia){
+  const mq = window.matchMedia('(prefers-color-scheme: dark)');
+  (mq.addEventListener ? mq.addEventListener('change', renderCharts) : mq.addListener(renderCharts));
+}
+</script>
+</body>
+</html>
